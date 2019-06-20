@@ -7,3 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.0] - 2007-01-13
 ### Added
 - Initial public release
+## [1.3.1] - 2007-01-19
+### Added
+- Using tr to replace the string-output from camcontrol, for a more human-readable script, no changes in functionality.
