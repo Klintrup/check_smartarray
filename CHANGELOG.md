@@ -10,3 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.1] - 2007-01-19
 ### Changed
 - Using tr to replace the string-output from camcontrol, for a more human-readable script, no changes in functionality.
+## [1.4.0] - 2007-01-19
+### Changed
+- If a volume didn't have a known state, it just wouldn't show that volume, it now exits with errorcode3 and outputs as "unknown state"
