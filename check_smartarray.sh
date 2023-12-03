@@ -2,12 +2,11 @@
 # NRPE check for Proliant SmartArray Controllers (ciss)
 # Written by: Søren Klintrup <github at klintrup.dk>
 # Get your copy from: https://github.com/Klintrup/check_smartarray/
-# version 1.5.0
 
 PATH="/sbin:/bin:/usr/sbin:/usr/bin"
 if [ -x "/sbin/camcontrol" ]
 then
- DEVICES="$(camcontrol devlist|grep "COMPAQ RAID"|sed -Ee 's/.*(pass[0-9]{1,3}).*/\1/')"
+ DEVICES="$(camcontrol devlist|egrep "(HP|COMPAQ) RAID"|sed -Ee 's/.*(pass[0-9]{1,3}).*/\1/')"
 else
  ERRORSTRING="camcontrol binary does not exist on system"
  ERR=3
