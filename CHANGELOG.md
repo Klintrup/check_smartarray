@@ -19,3 +19,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added quotes in various places for consistency
 - Don't set state to unknown if state is already critical (for code added in 1.4)
 - unset $ERR before doing anything to avoid problems if the variable is already set
+## [1.4.2] - 2007-02-27
+### Changed
+- The nagios web interface would only show one RAID volume, it seems nagios blocks "|" in the input and throws everything after that away.
+- Changed the "|" to a "/" in output
+- Thanks to Kai Gallasch for reporting this
+## [1.4.3] - 2007-03-23 
+### Changed
+- Changed tr A-Z a-z to tr [:upper:] [:lower:] to prevent problems with various locales.
+- Thanks to Oliver Fromme for reporting this
+## [1.4.4] - 2007-04-20
+### Added
+- Added online expansion
+- Thanks to Mikael Antonsen for reporting this
+## [1.4.5] - 2007-10-08
+### Changed
+- Problems with status of ADG (Advanced Data Guarding) Volumes fixed.
+- Thanks to Peter Larsen for reporting this
+## [1.5.0] - 2014-06-25
+### Added
+- Can now email an address of choice, just use email address(es) as arguments to shellscript
+### Changed
+- check if camcontrol binary exists on system before running script
+## [1.6.0] - 2014-11-18
+### Changed
+- HP Finally changed the SCSI output of their latest smart array controllers, updated script to be compatible with both versions
+- Thanks to Paul Yates for reporting this and providing sample output
