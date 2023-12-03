@@ -4,12 +4,14 @@
 I wrote this little check-script for nrpe/nagios to get the status of various raids in a box, and output the failed volumes if any such exist.
 
 ## Syntax
-``$path/check_smartarray.sh [email] [email]``
+
+`$path/check_smartarray.sh [email] [email]`
 
 If no arguments are specified, the script will assume its run for NRPE.
 If one or more email addresses are specified, the script will send an email in case an array reports an error.
 
 ## Output Examples
+
 | output | description |
 |--|--|
 | ok | The device is reported as ok by the smart array controller |
@@ -20,6 +22,7 @@ If one or more email addresses are specified, the script will send an email in c
 | unknown state | Volume is in an unknown state. Please submit a bug report so I can udate the script, include the following output. ``camcontrol devlist``, ``camcontrol inquiry da0 -D`` - run the inquiry for every volume on the system. |
 
 # Compability
+
 Should work on all smartarray controllers though - if you test on another (working or not) controller, I would like to know, please mail me on soren at klintrup.dk.
 
 I have tested the script on the following controllers
