@@ -1,9 +1,13 @@
 # monitor HP Smart Array from NRPE / cron for FreeBSD
+
 ## Synopsis
 I wrote this little check-script for nrpe/nagios to get the status of various raids in a box, and output the failed volumes if any such exist.
 
 ## Syntax
-``$path/check_smartarray.sh``
+``$path/check_smartarray.sh [email] [email]``
+
+If no arguments are specified, the script will assume its run for NRPE.
+If one or more email addresses are specified, the script will send an email in case an array reports an error.
 
 ## Output Examples
 | output | description |

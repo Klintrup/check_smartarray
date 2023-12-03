@@ -2,10 +2,17 @@
 # NRPE check for Proliant SmartArray Controllers (ciss)
 # Written by: Søren Klintrup <github at klintrup.dk>
 # Get your copy from: https://github.com/Klintrup/check_smartarray/
-# version 1.4.5
+# version 1.5.0
 
 PATH="/sbin:/bin:/usr/sbin:/usr/bin"
-DEVICES="$(camcontrol devlist|grep "COMPAQ RAID"|sed -Ee 's/.*(pass[0-9]{1,3}).*/\1/')"
+if [ -x "/sbin/camcontrol" ]
+then
+ DEVICES="$(camcontrol devlist|grep "COMPAQ RAID"|sed -Ee 's/.*(pass[0-9]{1,3}).*/\1/')"
+else
+ ERRORSTRING="camcontrol binary does not exist on system"
+ ERR=3
+fi
+
 unset ERRORSTRING
 unset OKSTRING
 unset ERR
@@ -46,12 +53,20 @@ do
    esac
  fi
 done
-if [ "${ERRORSTRING}" -o "${OKSTRING}" ]
-then
- echo ${ERRORSTRING} ${OKSTRING}|sed s/"^\/ "//
- exit ${ERR}
-else
- echo no raid volumes found
- exit 3
-fi
 
+if [ "${1}" ]
+then
+ if [ "${ERRORSTRING}" ]
+ then
+  echo "${ERRORSTRING} ${OKSTRING}"|sed s/"^\/ "//|mail -s "$(hostname -s): ${0} reports errors" -E ${*}
+ fi
+else
+if [ "${ERRORSTRING}" -o "${OKSTRING}" ]
+ then
+  echo ${ERRORSTRING} ${OKSTRING}|sed s/"^\/ "//
+  exit ${ERR}
+ else
+  echo no raid volumes found
+  exit 3
+ fi
+fi
