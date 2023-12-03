@@ -67,7 +67,7 @@ then
 else
 if [ "${ERRORSTRING}" ] || [ "${OKSTRING}" ]
  then
-  echo ${ERRORSTRING} ${OKSTRING}|sed s/"^\/ "//
+  echo "${ERRORSTRING} ${OKSTRING}"|sed s/"^\/ "//
   exit ${ERR}
  else
   echo no raid volumes found
