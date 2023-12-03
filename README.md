@@ -1,5 +1,12 @@
 # monitor HP Smart Array from NRPE / cron for FreeBSD
 
+[![CodeFactor](https://www.codefactor.io/repository/github/klintrup/check_smartarray/badge)](https://www.codefactor.io/repository/github/klintrup/check_smartarray)
+[![License Apache 2.0](https://img.shields.io/github/license/Klintrup/check_smartarray)](https://github.com/Klintrup/check_smartarray/blob/main/LICENSE)
+[![Latest Release](https://img.shields.io/github/v/release/Klintrup/check_smartarray)](https://github.com/Klintrup/check_smartarray/releases)
+[![Contributors](https://img.shields.io/github/contributors-anon/Klintrup/check_smartarray)](https://github.com/Klintrup/check_smartarray/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/Klintrup/check_smartarray)](https://github.com/Klintrup/check_smartarray/issues)
+[![build](https://img.shields.io/github/actions/workflow/status/Klintrup/check_smartarray/lint-shell.yml)](https://github.com/Klintrup/check_smartarray/actions/workflows/lint-shell.yml)
+
 ## Synopsis
 I wrote this little check-script for nrpe/nagios to get the status of various raids in a box, and output the failed volumes if any such exist.
 
