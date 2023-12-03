@@ -10,6 +10,7 @@ unset ERR
 PATH="/sbin:/bin:/usr/sbin:/usr/bin"
 if [ -x "/sbin/camcontrol" ]
 then
+ # shellcheck disable=SC2086
  DEVICES="$(camcontrol devlist|grep -Ee "(HP|COMPAQ) RAID"|sed -Ee 's/.*(pass[0-9]{1,3}).*/\1/')"
 else
  ERRORSTRING="camcontrol binary does not exist on system"
@@ -18,13 +19,17 @@ fi
 
 for DEVICE in ${DEVICES}
 do
+ # shellcheck disable=SC2086
  DEVICENAME="$(camcontrol devlist|grep ${DEVICE}|sed -Ee 's/.*(da[0-9]{1,3}).*/\1/')"
+ # shellcheck disable=SC2086
  DEVICESTRING="$(camcontrol inquiry ${DEVICE} -D|sed -n -e 's/^[^<]*<\([^>]*\)>.*$/\1/p')"
+ # shellcheck disable=SC2086
  if [ "$(echo ${DEVICESTRING}|tr '[:upper:]' '[:lower:]'|sed -Ee 's/.*(rea|int|exp|rec|fai|ok).*/\1/')" = "" ]
  then
   ERRORSTRING="${ERRORSTRING} / ${DEVICENAME}: unknown state"
   if ! [ "${ERR}" = 2 ];then ERR=3;fi
  else
+  # shellcheck disable=SC2086
   case $(echo ${DEVICESTRING}|tr '[:upper:]' '[:lower:]'|sed -Ee 's/.*(rea|int|exp|rec|fai|ok).*/\1/') in
    int)
     ERR=2
