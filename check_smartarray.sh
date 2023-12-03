@@ -1,7 +1,7 @@
 #!/bin/sh
 # NRPE check for Proliant SmartArray Controllers (ciss)
-# Written by: Søren Klintrup <soren at klintrup.dk>
-# version 1.4.2
+# Written by: SÃ¸ren Klintrup <soren at klintrup.dk>
+# version 1.4.3
 
 PATH="/sbin:/bin:/usr/sbin:/usr/bin"
 DEVICES="$(camcontrol devlist|grep "COMPAQ RAID"|sed -Ee 's/.*(pass[0-9]{1,3}).*/\1/')"
@@ -13,12 +13,12 @@ for DEVICE in ${DEVICES}
 do
  DEVICENAME="$(camcontrol devlist|grep ${DEVICE}|sed -Ee 's/.*(da[0-9]{1,3}).*/\1/')"
  DEVICESTRING="$(camcontrol inquiry ${DEVICE} -D|sed -n -e 's/^[^<]*<\([^>]*\)>.*$/\1/p')"
- if [ "$(echo ${DEVICESTRING}|tr A-Z a-z|sed -Ee 's/.*(rea|int|rec|fai|ok).*/\1/')" = "" ]
+ if [ "$(echo ${DEVICESTRING}|tr [:upper:] [:lower:]|sed -Ee 's/.*(rea|int|rec|fai|ok).*/\1/')" = "" ]
  then
   ERRORSTRING="${ERRORSTRING} / ${DEVICENAME}: unknown state"
   if ! [ "${ERR}" = 2 ];then ERR=3;fi
  else
-  case $(echo ${DEVICESTRING}|tr A-Z a-z|sed -Ee 's/.*(rea|int|rec|fai|ok).*/\1/') in
+  case $(echo ${DEVICESTRING}|tr [:upper:] [:lower:]|sed -Ee 's/.*(rea|int|rec|fai|ok).*/\1/') in
    int)
     ERR=2
     ERRORSTRING="${ERRORSTRING} / ${DEVICENAME}: DEGRADED"
