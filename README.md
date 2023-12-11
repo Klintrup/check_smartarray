@@ -9,7 +9,9 @@
 
 ## Synopsis
 
-I wrote this little check-script for nrpe/nagios to get the status of various raids in a box, and output the failed volumes if any such exist.
+Get the status HP/Compaq SmartArray controllers and output the failed volumes if any such exist.
+
+This only works for FreeBSD, however it doesn't require any special kernel modules as it just queries the controller via the SCSI commands.
 
 ## Syntax
 
