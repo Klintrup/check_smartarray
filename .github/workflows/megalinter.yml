@@ -42,7 +42,7 @@
             # https://megalinter.io/configuration/
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             ADDITIONAL_EXCLUDED_DIRECTORIES: .github
-            EXCLUDED_FILES: CHANGELOG.md
+            MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: (CHANGELOG.md)
             # disable cspell due to issues with danish
             # disable secretlint due to ENOENT: no such file or directory errors.
             DISABLE_LINTERS: SPELL_CSPELL,SPELL_LYCHEE,REPOSITORY_SECRETLINT
