@@ -23,7 +23,7 @@ If one or more email addresses are specified, the script will send an email in c
 ## Output Examples
 
 | output             | description                                                                                                                                                                                                            |
-|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ok                 | The device is reported as ok by the smart array controller                                                                                                                                                             |
 | DEGRADED           | The RAID volume is degraded, it's still working but without the safety of RAID, and in some cases with severe performance loss.                                                                                        |
 | rebuilding         | The RAID is rebuilding, will return to OK when done                                                                                                                                                                    |
@@ -32,6 +32,7 @@ If one or more email addresses are specified, the script will send an email in c
 | unknown state      | Volume is in an unknown state. Please submit a bug report so I can udate the script, include the following output. `camcontrol devlist`, `camcontrol inquiry da0 -D` - run the inquiry for every volume on the system. |
 
 ## Compatibility
+
 Should work on all smartarray controllers though - if you test on another (working or not) controller, I would like to know, please mail me on soren at klintrup.dk.
 
 I have tested the script on the following controllers
