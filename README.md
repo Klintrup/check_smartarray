@@ -29,7 +29,7 @@ If one or more email addresses are specified, the script will send an email in c
 | rebuilding         | The RAID is rebuilding, will return to OK when done                                                                                                                                                                    |
 | expanding          | The RAID is expanding, will return to OK when done                                                                                                                                                                     |
 | ready for recovery | The RAID is ready for recovery, but not recovering. This can happen if automatic recovery is disabled, and on some smaller versions of the Smart Array Controllers where only one RAID volume can be rebuild at a time |
-| unknown state      | Volume is in an unknown state. Please submit a bug report so I can udate the script, include the following output. `camcontrol devlist`, `camcontrol inquiry da0 -D` - run the inquiry for every volume on the system. |
+| unknown state      | Volume is in an unknown state. Please submit a bug report so I can update the script, include the following output. `camcontrol devlist`, `camcontrol inquiry da0 -D` - run the inquiry for every volume on the system. |
 
 ## Compatibility
 
