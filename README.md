@@ -23,7 +23,7 @@ If one or more email addresses are specified, the script will send an email in c
 ## Output Examples
 
 | output             | description                                                                                                                                                                                                            |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ok                 | The device is reported as ok by the smart array controller                                                                                                                                                             |
 | DEGRADED           | The RAID volume is degraded, it's still working but without the safety of RAID, and in some cases with severe performance loss.                                                                                        |
 | rebuilding         | The RAID is rebuilding, will return to OK when done                                                                                                                                                                    |
