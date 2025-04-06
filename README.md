@@ -31,8 +31,7 @@ If one or more email addresses are specified, the script will send an email in c
 | ready for recovery | The RAID is ready for recovery, but not recovering. This can happen if automatic recovery is disabled, and on some smaller versions of the Smart Array Controllers where only one RAID volume can be rebuild at a time |
 | unknown state      | Volume is in an unknown state. Please submit a bug report so I can udate the script, include the following output. `camcontrol devlist`, `camcontrol inquiry da0 -D` - run the inquiry for every volume on the system. |
 
-## Compability
-
+## Compatibility
 Should work on all smartarray controllers though - if you test on another (working or not) controller, I would like to know, please mail me on soren at klintrup.dk.
 
 I have tested the script on the following controllers
