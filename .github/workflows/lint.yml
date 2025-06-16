@@ -52,6 +52,6 @@ jobs:
             **.md
       - name: Prettify code
         if: steps.changed-files.outputs.any_changed == 'true'
-        uses: creyD/prettier_action@v4.3
+        uses: creyD/prettier_action@v4.6
         with:
           prettier_options: --write ${{ steps.changed-files.outputs.all_changed_files }}
