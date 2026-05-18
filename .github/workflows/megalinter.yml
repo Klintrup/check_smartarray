@@ -36,7 +36,7 @@
           id: ml
           # You can override MegaLinter flavor used to have faster performances
           # More info at https://megalinter.io/flavors/
-          uses: oxsecurity/megalinter/flavors/documentation@55a59b24a441e0e1943080d4a512d827710d4a9d # v9.2.0
+          uses: oxsecurity/megalinter/flavors/documentation@0e3ce9b9c8c10effb9b269509cc47ca17cae31c7 # v9.5.0
           env:
             # All available variables are described in documentation
             # https://megalinter.io/configuration/
